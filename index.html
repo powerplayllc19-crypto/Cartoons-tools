@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POWER Key - Android Unlock Tool</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="styles/main.css">
+  <meta name="theme-color" content="#3b82f6">
+</head>
+<body>
+  <div class="app-container">
+    <!-- HEADER -->
+    <header class="app-header">
+      <img src="assets/logo.png" alt="POWER Key Logo" class="logo">
+      <h1>POWER Key v2025</h1>
+      <p>Professional Android Unlock Tool | 100% Success Rate</p>
+      <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch">
+        <label for="theme-switch">🌙 Dark Mode</label>
+      </div>
+    </header>
+
+    <!-- MAIN APP -->
+    <main class="app-main">
+      <!-- STEP 1: CONNECT DEVICE -->
+      <section id="step-connect" class="step-card active">
+        <div class="step-header">
+          <span class="step-number">1</span>
+          <h2>Connect Your Device</h2>
+        </div>
+        <div class="step-content">
+          <div class="device-status">
+            <div id="device-status-indicator" class="status-indicator disconnected">🔴 Disconnected</div>
+            <button id="detect-device-btn" class="btn-primary">🔍 Detect Device</button>
+          </div>
+          <div id="device-info" class="hidden">
+            <h3>Connected Device:</h3>
+            <p><strong>Model:</strong> <span id="device-model">-</span></p>
+            <p><strong>Android Version:</strong> <span id="android-version">-</span></p>
+            <p><strong>Lock Type:</strong> <span id="lock-type">-</span></p>
+          </div>
+          <div class="instructions">
+            <h3>How to Connect:</h3>
+            <ol>
+              <li>Enable <strong>USB Debugging</strong> on your Android device (Settings > Developer Options)</li>
+              <li>Connect device via USB cable</li>
+              <li>Click "Detect Device"</li>
+            </ol>
+            <img src="assets/usb-debugging.png" alt="USB Debugging Guide" class="guide-img">
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2: SELECT UNLOCK METHOD -->
+      <section id="step-method" class="step-card">
+        <div class="step-header">
+          <span class="step-number">2</span>
+          <h2>Select Unlock Method</h2>
+        </div>
+        <div class="step-content">
+          <div class="method-grid">
+            <label class="method-card">
+              <input type="radio" name="unlock-method" value="screen-lock" checked>
+              <div class="method-icon">🔒</div>
+              <h3>Screen Lock Removal</h3>
+              <p>PIN, Pattern, Password</p>
+            </label>
+
+            <label class="method-card">
+              <input type="radio" name="unlock-method" value="frp">
+              <div class="method-icon">📱</div>
+              <h3>FRP Bypass</h3>
+              <p>Google Account Lock</p>
+            </label>
+
+            <label class="method-card">
+              <input type="radio" name="unlock-method" value="fingerprint">
+              <div class="method-icon">👆</div>
+              <h3>Fingerprint/Face ID</h3>
+              <p>Biometric Lock Removal</p>
+            </label>
+
+            <label class="method-card">
+              <input type="radio" name="unlock-method" value="all">
+              <div class="method-icon">⚡</div>
+              <h3>Full Unlock</h3>
+              <p>Remove ALL Locks</p>
+            </label>
+          </div>
+
+          <div class="warning-box">
+            ⚠️ <strong>IMPORTANT:</strong> This process may erase data. 
+            <button id="backup-btn" class="btn-secondary">Backup Data First</button>
+          </div>
+        </div>
+        <button id="next-to-unlock" class="btn-primary hidden">Next → Unlock</button>
+      </section>
+
+      <!-- STEP 3: UNLOCK PROCESS -->
+      <section id="step-unlock" class="step-card">
+        <div class="step-header">
+          <span class="step-number">3</span>
+          <h2>Unlock Process</h2>
+        </div>
+        <div class="step-content">
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <p id="progress-text">Preparing...</p>
+          </div>
+
+          <div class="log-container">
+            <h3>Process Log:</h3>
+            <div id="log-output" class="log-box"></div>
+          </div>
+
+          <div class="action-buttons">
+            <button id="start-unlock-btn" class="btn-primary">🚀 Start Unlock</button>
+            <button id="stop-unlock-btn" class="btn-secondary hidden">⏹️ Stop</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4: COMPLETE -->
+      <section id="step-complete" class="step-card">
+        <div class="step-header">
+          <span class="step-number">4</span>
+          <h2>Unlock Complete!</h2>
+        </div>
+        <div class="step-content">
+          <div class="success-animation">
+            ✅ <span id="success-message">Device Successfully Unlocked!</span>
+          </div>
+          <div class="device-info-complete">
+            <p><strong>Device:</strong> <span id="complete-device">-</span></p>
+            <p><strong>Unlock Method:</strong> <span id="complete-method">-</span></p>
+            <p><strong>Time Taken:</strong> <span id="time-taken">-</span></p>
+          </div>
+          <button id="new-device-btn" class="btn-primary">🔁 Unlock Another Device</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+      <p>POWER Key v2025 | Made for Professionals | 100% Success Rate</p>
+      <p>© 2025 PowerKey Tools. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="scripts/device.js"></script>
+  <script src="scripts/unlock.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
